@@ -1,12 +1,18 @@
-Feature: Local server test
-    As a developer
-    I want the demo app have the correct title
+Feature:
+    To attract users to play
+    The home page must contain each section heading
 
-    Background:
-        Given I open the site "/"
+    Scenario: Check title of website includes brain games
+        Given I open the url "https://www.lumosity.com/"
+        Then I expect that the title contains the text "Brain Games"
 
-    Scenario: Is not Google
-        Then I expect that the title is not "Google"
+    Scenario: Check that the logo is present
+        Given I open the url "https://www.lumosity.com/"
+        Then I expect that element "#logo" does exist
 
-    Scenario: Is correct
-        Then I expect that the title is "DEMO APP"
+    Scenario: Check that the Carousel is displayed
+        Given I open the url "https://www.lumosity.com/"
+        When I scroll to element "#myCarousel"
+        And  Element "#myCarousel" is visible
+        Then I expect that element "#myCarousel" contains the text "1. Get your baseline"
+
