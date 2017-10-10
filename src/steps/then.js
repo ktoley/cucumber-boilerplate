@@ -19,6 +19,7 @@ import checkOffset from '../support/check/checkOffset';
 import checkProperty from '../support/check/checkProperty';
 import checkSelected from '../support/check/checkSelected';
 import checkTitle from '../support/check/checkTitle';
+import checkTitleContains from '../support/check/checkTitleContains';
 import checkURL from '../support/check/checkURL';
 import checkURLPath from '../support/check/checkURLPath';
 import checkWithinViewport from '../support/check/checkWithinViewport';
@@ -37,7 +38,18 @@ defineSupportCode(({ Then }) => {
     );
 
     Then(
+        /^I expect that the title contains the text( not)* "([^"]*)"$/,
+        checkTitleContains
+    );
+
+
+    Then(
         /^I expect that element "([^"]*)?" is( not)* visible$/,
+        isVisible
+    );
+
+    Then(
+        /^Element "([^"]*)?" is( not)* visible$/,
         isVisible
     );
 
